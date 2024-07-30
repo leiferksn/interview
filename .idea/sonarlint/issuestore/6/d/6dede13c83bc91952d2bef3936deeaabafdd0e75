@@ -1,0 +1,11 @@
+
+Z
+java:S1700
+"Rename field "threadId"(ƒµ­8‡İ¦ï2J$384f1cf3-3e75-4321-98ec-0d137b2a1ee4
+a
+java:S5164
+"Call "remove()" on "threadId".(ƒµ­8Œİ¦ï2J$5dcf8131-0fc2-47fc-b1b1-51b305774e53
+‰
+java:S4065
+"FReplace this anonymous class with a call to "ThreadLocal.withInitial".(ƒµ­8’İ¦ï2J$63ed25b8-b2e6-4f61-a229-be3ae8f944ac
+r	java:S106"+Replace this use of System.out by a logger.(â°÷§üÿÿÿÿ8—İ¦ï2J$67467518-07c3-4374-b748-a2717669cde3
