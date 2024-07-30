@@ -1,8 +1,0 @@
-
-a
-java:S5164
-"Call "remove()" on "threadId".(ƒµ­8Œİ¦ï2J$00eb2099-4029-4194-bbf8-1c0ebb47c2b2
-‰
-java:S4065
-"FReplace this anonymous class with a call to "ThreadLocal.withInitial".(ƒµ­8’İ¦ï2J$c1d0aeb8-e2b1-4483-8aae-e2c13aefd30c
-r	java:S106"+Replace this use of System.out by a logger.(£“¤øÿÿÿÿ8—İ¦ï2J$ce462004-a86d-4f03-9000-a4b51a9ef634
