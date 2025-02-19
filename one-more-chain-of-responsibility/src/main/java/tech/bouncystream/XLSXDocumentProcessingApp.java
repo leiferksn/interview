@@ -13,12 +13,12 @@ public class XLSXDocumentProcessingApp {
         mainProcessor.addProcessor(headersFromRowsProcessor);
 
         final var preProcessor = new PreProcessor();
-        preProcessor.setContainer(mainProcessor);
+        preProcessor.setNextContainer(mainProcessor);
 
         final var writeProcessor = new WriteProcessor();
 
-        headersFromColsProcessor.addProcessor(writeProcessor);
-        headersFromRowsProcessor.addProcessor(writeProcessor);
+        headersFromColsProcessor.setNextContainer(writeProcessor);
+        headersFromRowsProcessor.setNextContainer(writeProcessor);
 
         preProcessor.process(new Document(new Content(), new Properties(0)));
 

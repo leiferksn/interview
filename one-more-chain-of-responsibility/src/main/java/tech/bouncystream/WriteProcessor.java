@@ -1,7 +1,7 @@
 package tech.bouncystream;
 
 
-public class WriteProcessor extends BaseProcessor {
+public class WriteProcessor extends SimpleProcessor {
 
     @Override
     public Document process(Document doc) {

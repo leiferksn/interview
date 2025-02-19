@@ -1,6 +1,6 @@
 package tech.bouncystream;
 
-public class HeadersFromRowsProcessor extends ContainerProcessor {
+public class HeadersFromRowsProcessor extends SimpleProcessor {
 
     @Override
     public Document process(Document doc) {
@@ -12,8 +12,4 @@ public class HeadersFromRowsProcessor extends ContainerProcessor {
         return "Headers From Rows Processor";
     }
 
-    @Override
-    public Integer processorIdx() {
-        return 0;
-    }
 }
