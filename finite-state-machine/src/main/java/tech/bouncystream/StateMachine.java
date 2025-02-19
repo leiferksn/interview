@@ -4,12 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StateMachine {
-    private Map<State, Transition> transitions = new HashMap<>();
+    private final Map<State, Transition> transitions = new HashMap<>();
     private Document document;
 
     public StateMachine() {
-        this.document = new Document();
-        this.document.changeState(State.READY_TO_PROCESS);
+        this.document = new Document(State.READY_TO_PROCESS);
     }
 
     public void handleDocument(){
