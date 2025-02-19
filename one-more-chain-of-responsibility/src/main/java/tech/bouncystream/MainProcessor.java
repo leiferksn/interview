@@ -6,6 +6,7 @@ public class MainProcessor extends ContainerProcessor {
 
     @Override
     public Document process(Document doc) {
+        // overwrite the default handling of the container processor if necessary
         return super.process(doc);
     }
 
