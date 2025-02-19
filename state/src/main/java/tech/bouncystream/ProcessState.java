@@ -7,15 +7,15 @@ public class ProcessState extends State {
     }
 
     @Override
-    public State next() {
-        System.out.println("Changing to write state");
+    public void process() {
+        super.process();
         final var nextState = new WriteState(this.getDocument());
         this.getDocument().changeState(nextState);
-        return nextState;
     }
 
     @Override
     public String toString() {
         return "PROCESS";
     }
+
 }

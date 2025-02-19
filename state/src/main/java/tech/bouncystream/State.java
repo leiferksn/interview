@@ -1,6 +1,6 @@
 package tech.bouncystream;
 
-public abstract class State {
+public abstract class State implements Processable {
 
     private Document document;
 
@@ -8,10 +8,12 @@ public abstract class State {
         this.document = doc;
     }
 
-    public abstract State next();
-
     public Document getDocument() {
         return document;
     }
 
+    @Override
+    public void process() {
+        System.out.println("Do something with document in state: " + this);
+    }
 }

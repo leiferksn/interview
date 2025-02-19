@@ -8,10 +8,9 @@ public class WriteState extends State {
     }
 
     @Override
-    public State next() {
-        System.out.println("End state.");
-        this.getDocument().changeState(null);
-        return null;
+    public void process() {
+        super.process();
+        this.getDocument().changeState(new WrittenState(this.getDocument()));
     }
 
     @Override
