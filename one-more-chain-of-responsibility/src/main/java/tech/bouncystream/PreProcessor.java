@@ -7,10 +7,10 @@ public class PreProcessor extends SimpleDocumentProcessor {
 
 
     @Override
-    public Document process(Document doc) {
+    public RawDocument process(RawDocument doc) {
         doStuff();
         // this creation of new Document should be part of the doStuff method
-        final var newDoc = new Document(doc.content(), new Properties(randomState()));
+        final var newDoc = new RawDocument(doc.content(), new ProcessProperties(randomState()));
         this.documentProcessor.process(newDoc);
         return doc;
     }

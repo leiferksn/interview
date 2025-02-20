@@ -3,7 +3,7 @@ package tech.bouncystream;
 public class WriteProcessor extends SimpleDocumentProcessor {
 
     @Override
-    public Document process(Document doc) {
+    public RawDocument process(RawDocument doc) {
         doStuff();
         if (this.documentProcessor != null) {
             return this.documentProcessor.process(doc);

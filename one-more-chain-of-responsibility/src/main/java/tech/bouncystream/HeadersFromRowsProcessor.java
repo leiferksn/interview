@@ -8,7 +8,7 @@ public class HeadersFromRowsProcessor extends SimpleDocumentProcessor {
     }
 
     @Override
-    public Document process(Document doc) {
+    public RawDocument process(RawDocument doc) {
         doStuff();
         return this.documentProcessor.process(doc);
     }

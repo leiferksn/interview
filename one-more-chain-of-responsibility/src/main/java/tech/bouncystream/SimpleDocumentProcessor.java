@@ -5,7 +5,7 @@ public abstract class SimpleDocumentProcessor implements DocumentProcessor {
     protected DocumentProcessor documentProcessor;
 
     @Override
-    public abstract Document process(Document doc);
+    public abstract RawDocument process(RawDocument doc);
 
     public void nextProcessor(DocumentProcessor documentProcessor) {
         this.documentProcessor = documentProcessor;

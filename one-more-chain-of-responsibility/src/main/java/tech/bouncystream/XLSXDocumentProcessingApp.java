@@ -22,7 +22,7 @@ public class XLSXDocumentProcessingApp {
         mainProcessor.addProcessor(TO_PROCESS_HEADERS_WITH_ROWS, headersFromRowsProcessor);
 
         preProcessor.nextProcessor(mainProcessor);
-        preProcessor.process(new Document(new Content(), new Properties(null)));
+        preProcessor.process(new RawDocument(new Content(), new ProcessProperties(null)));
 
     }
 

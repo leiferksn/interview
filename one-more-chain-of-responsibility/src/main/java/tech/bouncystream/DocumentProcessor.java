@@ -2,7 +2,7 @@ package tech.bouncystream;
 
 public interface DocumentProcessor {
 
-    Document process(Document doc);
+    RawDocument process(RawDocument doc);
     default void doStuff() {
          System.out.println("Processing stuff with " + this);
     }
