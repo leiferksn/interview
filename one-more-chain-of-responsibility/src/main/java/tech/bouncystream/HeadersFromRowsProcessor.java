@@ -1,15 +1,20 @@
 package tech.bouncystream;
 
-public class HeadersFromRowsProcessor extends SimpleProcessor {
+public class HeadersFromRowsProcessor extends SimpleDocumentProcessor {
+
+    @Override
+    public void nextProcessor(DocumentProcessor documentProcessor) {
+        super.nextProcessor(documentProcessor);
+    }
 
     @Override
     public Document process(Document doc) {
-        return super.process(doc);
+        doStuff();
+        return this.documentProcessor.process(doc);
     }
 
     @Override
     public String toString() {
-        return "Headers From Rows Processor";
+        return "Header from Rows Processor";
     }
-
 }

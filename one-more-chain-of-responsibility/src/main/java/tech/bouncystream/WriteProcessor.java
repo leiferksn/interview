@@ -1,16 +1,18 @@
 package tech.bouncystream;
 
-
-public class WriteProcessor extends SimpleProcessor {
+public class WriteProcessor extends SimpleDocumentProcessor {
 
     @Override
     public Document process(Document doc) {
-        return super.process(doc);
+        doStuff();
+        if (this.documentProcessor != null) {
+            return this.documentProcessor.process(doc);
+        }
+        return null;
     }
 
     @Override
     public String toString() {
-        return "Write processor";
+        return "Write Processor";
     }
-
 }

@@ -1,13 +1,22 @@
 package tech.bouncystream;
 
-import java.util.Random;
+import java.util.HashMap;
+import java.util.Map;
 
-public class MainProcessor extends ContainerProcessor {
+public class MainProcessor extends CompositeDocumentProcessor<ProcessType> {
+
+    private Map<ProcessType, DocumentProcessor> processors = new HashMap<>();
 
     @Override
     public Document process(Document doc) {
-        // overwrite the default handling of the container processor if necessary
-        return super.process(doc);
+        doStuff();
+        nextProcessor(doc.properties().processType());
+        return this.documentProcessor.process(doc);
+    }
+
+    @Override
+    public Map<ProcessType, DocumentProcessor> processors() {
+        return processors;
     }
 
     @Override
@@ -16,8 +25,7 @@ public class MainProcessor extends ContainerProcessor {
     }
 
     @Override
-    public Integer processorIdx() {
-        final var random = new Random();
-        return random.ints(0, 100).findFirst().getAsInt() % 2 == 0 ? 0 : 1;
+    public void addProcessor(ProcessType processType, DocumentProcessor documentProcessor) {
+        this.processors.put(processType, documentProcessor);
     }
 }

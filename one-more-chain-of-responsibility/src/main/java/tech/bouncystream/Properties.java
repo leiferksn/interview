@@ -1,5 +1,5 @@
 package tech.bouncystream;
 
-public record Properties(Integer idx) {
+public record Properties(ProcessType processType) {
 
 }
