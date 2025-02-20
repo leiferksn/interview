@@ -1,10 +1,12 @@
 package tech.bouncystream;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class CompositeDocumentProcessor<T> implements DocumentProcessor {
 
     protected DocumentProcessor documentProcessor;
+    protected Map<T, DocumentProcessor> processors = new HashMap<>();
 
     @Override
     public abstract Document process(Document doc);
@@ -13,8 +15,12 @@ public abstract class CompositeDocumentProcessor<T> implements DocumentProcessor
         this.documentProcessor = processors().get(parameter);
     }
 
-    public abstract Map<T, DocumentProcessor> processors();
+    public Map<T, DocumentProcessor> processors() {
+        return this.processors;
+    }
 
-    public abstract void addProcessor(T t, DocumentProcessor documentProcessor);
+    public  void addProcessor(T t, DocumentProcessor documentProcessor) {
+        this.processors.put(t, documentProcessor);
+    }
 
 }
