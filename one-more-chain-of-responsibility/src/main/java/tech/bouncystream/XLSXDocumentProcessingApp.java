@@ -7,6 +7,7 @@ import static tech.bouncystream.ProcessType.TO_PROCESS_HEADERS_WITH_ROWS;
 public class XLSXDocumentProcessingApp {
 
     public static void main(String[] args) {
+
         final var writeProcessor = new WriteProcessor();
         writeProcessor.nextProcessor(null);
 
@@ -22,6 +23,8 @@ public class XLSXDocumentProcessingApp {
         mainProcessor.addProcessor(TO_PROCESS_HEADERS_WITH_ROWS, headersFromRowsProcessor);
 
         preProcessor.nextProcessor(mainProcessor);
+
+
         preProcessor.process(new RawDocument(new Content(), new ProcessProperties(null)));
 
     }
