@@ -4,10 +4,10 @@ public class MainProcessor extends CompositeDocumentProcessor<ProcessType> {
 
 
     @Override
-    public RawDocument process(RawDocument doc) {
-        doStuff();
+    public void process(RawDocument doc) {
+        doStuff(doc);
         nextProcessor(doc.processProperties().processType());
-        return this.documentProcessor.process(doc);
+        this.documentProcessor.process(doc);
     }
 
     @Override

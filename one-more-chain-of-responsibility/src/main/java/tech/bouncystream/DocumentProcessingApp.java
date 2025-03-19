@@ -1,10 +1,10 @@
 package tech.bouncystream;
 
 
-import static tech.bouncystream.ProcessType.TO_PROCESS_HEADERS_WITH_COLS;
-import static tech.bouncystream.ProcessType.TO_PROCESS_HEADERS_WITH_ROWS;
+import static tech.bouncystream.ProcessType.HEADERS_FROM_COLS;
+import static tech.bouncystream.ProcessType.HEADERS_FROM_ROWS;
 
-public class XLSXDocumentProcessingApp {
+public class DocumentProcessingApp {
 
     public static void main(String[] args) {
 
@@ -19,8 +19,8 @@ public class XLSXDocumentProcessingApp {
 
         final var preProcessor = new PreProcessor();
         final var mainProcessor = new MainProcessor();
-        mainProcessor.addProcessor(TO_PROCESS_HEADERS_WITH_COLS, headersFromColsProcessor);
-        mainProcessor.addProcessor(TO_PROCESS_HEADERS_WITH_ROWS, headersFromRowsProcessor);
+        mainProcessor.addProcessor(HEADERS_FROM_COLS, headersFromColsProcessor);
+        mainProcessor.addProcessor(HEADERS_FROM_ROWS, headersFromRowsProcessor);
 
         preProcessor.nextProcessor(mainProcessor);
 

@@ -9,7 +9,7 @@ public abstract class CompositeDocumentProcessor<T> implements DocumentProcessor
     protected Map<T, DocumentProcessor> processors = new HashMap<>();
 
     @Override
-    public abstract RawDocument process(RawDocument doc);
+    public abstract void process(RawDocument doc);
 
     public void nextProcessor(T parameter) {
         this.documentProcessor = processors().get(parameter);
