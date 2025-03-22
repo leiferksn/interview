@@ -18,6 +18,9 @@ public class QueueApp {
 
         final var notAgain = q.dequeue();
         System.out.println(notAgain.content());
+
+        q.enqueue(new QueueNode("junk"));
+        System.out.println(q.size());
     }
 
 }

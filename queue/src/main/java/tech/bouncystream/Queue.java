@@ -3,6 +3,7 @@ package tech.bouncystream;
 public class Queue {
 
     QueueNode first;
+    int size = 0;
 
     void enqueue(QueueNode qn) {
         if (first == null) {
@@ -12,21 +13,22 @@ public class Queue {
             first.setPrev(qn);
             this.first = qn;
         }
+        size++;
     }
 
     QueueNode dequeue() {
+        QueueNode last;
         if (first.next() == null) {
-            final var last = first;
+            last  = first;
             first = null;
-            return last;
         } else {
-            final var last = last(first);
+            last = last(first);
             final var beforeLast = last.prev();
             last.setPrev(null);
             beforeLast.setNext(null);
-            return last;
         }
-
+        size--;
+        return last;
     }
 
     QueueNode last(QueueNode qn) {
@@ -34,6 +36,10 @@ public class Queue {
             return last(qn.next());
         }
         return qn;
+    }
+
+    int size() {
+        return this.size;
     }
 
 }
