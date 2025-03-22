@@ -21,6 +21,12 @@ public class QueueApp {
 
         q.enqueue(new QueueNode("junk"));
         System.out.println(q.size());
+
+        for(int i = 0; i < 10; i++) {
+            q.enqueue(new QueueNode("element " + i));
+        }
+
+        System.out.println(q.size());
     }
 
 }
