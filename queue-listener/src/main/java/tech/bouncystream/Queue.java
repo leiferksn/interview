@@ -76,28 +76,20 @@ public class Queue {
         }
     }
 
-    // TODO
-    //  although this works in this particular example, is not a good design, because
-    //  it creates a new Thread every time notifyListeners gets called, which is every time we enqueue a new msg.
-    //  so in the worst case we can have a 1 thread/msg. thee logic should be fixed to use a thread pool, so that it
-    //  reuses existing threads.
+    // TODO atm we are creating a new virtual thread for every message and every listener -> numOfMessages*numOfListeners.
+    //  Although these are virtual threads, I'm not sure if the whole process shouldn't be more resource saving.
     synchronized void notifyListeners() {
         final var listeners = this.listeners;
         if (listeners.size() > 0) {
             // read message only if there are registered listeners. otherwise collect the messages in the queue.
-            final var decoupledProcessing = new Thread(() -> {
-                System.out.println("Thread: " + Thread.currentThread());
-                QueueNode msg;
-                do {
-                    msg = dequeue();
-                    final var content = msg != null ? msg.content() : null;
-                    for(QueueListener l : listeners) {
-                        l.processQueueMessage(content);
-                    }
-                } while (msg != null);
-            });
-
-            decoupledProcessing.start();
+            QueueNode msg;
+            do {
+                msg = dequeue();
+                final var content = msg != null ? msg.content() : null;
+                for (QueueListener l : listeners) {
+                    l.processQueueMessage(content);
+                }
+            } while (msg != null);
         }
     }
 }

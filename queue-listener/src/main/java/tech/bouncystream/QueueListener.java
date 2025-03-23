@@ -11,15 +11,24 @@ public class QueueListener {
     }
 
     void processQueueMessage(final String msg) {
-        if (msg != null) {
-            System.out.println("Processing message: '" + msg + "' ... in thread: " + Thread.currentThread());
-        } else {
-            System.out.println("Queue is empty. Thread: " + Thread.currentThread());
-        }
+        final var listenerName = this.name;
+        Thread.startVirtualThread( () -> {
+            if (msg != null) {
+                System.out.println("Processing message: '" + msg +  " with listener " + listenerName + " in thread: " + Thread.currentThread() + "' ...");
+            } else {
+                System.out.println("Listener: " + this + " Queue is empty. Thread: " + Thread.currentThread());
+            }
+        });
+
+
     }
 
     String name() {
         return this.name;
     }
 
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

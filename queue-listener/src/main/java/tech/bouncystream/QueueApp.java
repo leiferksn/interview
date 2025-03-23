@@ -31,6 +31,9 @@ public class QueueApp {
         final var listener = new QueueListener(q, "casual-listener");
         q.registerListener(listener);
 
+        final var nextListener = new QueueListener(q, "yet another listener");
+        q.registerListener(nextListener);
+
         q.enqueue(new QueueNode("to-all-listeners"));
         Thread.sleep(2000);
         // q.unregisterListener(listener);
