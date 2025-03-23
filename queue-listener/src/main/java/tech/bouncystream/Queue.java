@@ -41,7 +41,7 @@ public class Queue {
         return last;
     }
 
-    // stackoverflow prone !!!
+    // stackoverflow prone, because of recursion !!!
     QueueNode last(QueueNode qn) {
         if (qn.next() != null) {
             return last(qn.next());
